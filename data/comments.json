@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "UserId": 2,
+    "PostId": 1,
+    "content": "Bagus sekali hasil renovasinya! Berapa lama proses pengerjaannya?"
+  },
+  {
+    "id": 2,
+    "UserId": 3,
+    "PostId": 1,
+    "content": "Pemilihan warna dan materialnya terlihat sangat cocok."
+  },
+  {
+    "id": 3,
+    "UserId": 1,
+    "PostId": 2,
+    "content": "Desainnya menarik, terutama pada bagian pencahayaan alami."
+  },
+  {
+    "id": 4,
+    "UserId": 4,
+    "PostId": 2,
+    "content": "Konsep rumah tropis seperti ini cocok untuk iklim Indonesia."
+  },
+  {
+    "id": 5,
+    "UserId": 2,
+    "PostId": 3,
+    "content": "Semoga proses pembangunannya berjalan lancar sampai selesai."
+  },
+  {
+    "id": 6,
+    "UserId": 3,
+    "PostId": 4,
+    "content": "Warna kabinet kayunya membuat dapur terlihat lebih hangat."
+  },
+  {
+    "id": 7,
+    "UserId": 4,
+    "PostId": 5,
+    "content": "Saya suka konsep ruang tamu dengan warna netral seperti ini."
+  },
+  {
+    "id": 8,
+    "UserId": 1,
+    "PostId": 6,
+    "content": "Perbaikan infrastruktur lingkungan memang sangat diperlukan."
+  }
+]

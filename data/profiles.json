@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "UserId": 1,
+    "displayName": "Andi Construction",
+    "bio": "Kontraktor yang berfokus pada pembangunan dan renovasi rumah.",
+    "avatarUrl": null
+  },
+  {
+    "id": 2,
+    "UserId": 2,
+    "displayName": "Budi Wijaya",
+    "bio": "Sedang membangun rumah impian dan mencari inspirasi desain.",
+    "avatarUrl": null
+  },
+  {
+    "id": 3,
+    "UserId": 3,
+    "displayName": "Citra Architecture",
+    "bio": "Arsitek yang menyukai desain minimalis dan modern.",
+    "avatarUrl": null
+  },
+  {
+    "id": 4,
+    "UserId": 4,
+    "displayName": "Dimas Saputra",
+    "bio": "Penggemar desain interior dan renovasi rumah.",
+    "avatarUrl": null
+  }
+]

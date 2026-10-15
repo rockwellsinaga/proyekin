@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROYEKIN</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <main class="container">
+      <section class="hero">
+        <p class="eyebrow">MEDIA SOSIAL KONSTRUKSI</p>
+        <h1>Bagikan proyek dan inspirasi pembangunan.</h1>
+        <p>Temukan progres konstruksi, renovasi, arsitektur, dan interior dari komunitas PROYEKIN.</p>
+      </section>
+
+      <% if (message) { %><div class="alert success"><%= message %></div><% } %>
+      <% if (error) { %><div class="alert error"><%= error %></div><% } %>
+
+      <form action="/" method="GET" class="search-form">
+        <input type="text" name="search" value="<%= search %>" placeholder="Cari judul proyek..." />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="section-heading">
+        <h2>Latest Projects</h2>
+        <span><%= posts.length %> post</span>
+      </div>
+
+      <% if (!posts.length) { %>
+        <div class="empty-state">Belum ada post yang sesuai.</div>
+      <% } %>
+
+      <section class="post-grid">
+        <% posts.forEach((post) => { %>
+          <article class="post-card">
+            <% if (post.imageUrl) { %>
+              <img src="<%= post.imageUrl %>" alt="<%= post.title %>" class="post-image" />
+            <% } else { %>
+              <div class="image-placeholder">PROYEKIN</div>
+            <% } %>
+            <div class="post-body">
+              <div class="post-meta">
+                <a href="/users/<%= post.User.id %>">@<%= post.User.username %></a>
+                <span><%= formatDate(post.createdAt) %></span>
+              </div>
+              <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+              <p><%= post.shortContent %></p>
+              <% if (post.location) { %><p class="location">📍 <%= post.location %></p><% } %>
+              <div class="tags">
+                <% post.Tags.forEach((tag) => { %><span>#<%= tag.name %></span><% }) %>
+              </div>
+              <a class="text-link" href="/posts/<%= post.id %>">Lihat detail →</a>
+            </div>
+          </article>
+        <% }) %>
+      </section>
+    </main>
+  </body>
+</html>

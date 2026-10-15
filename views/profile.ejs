@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= user.Profile ? user.Profile.displayName : user.username %> | PROYEKIN</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <main class="container">
+      <% if (message) { %><div class="alert success"><%= message %></div><% } %>
+      <section class="profile-header">
+        <% if (user.Profile && user.Profile.avatarUrl) { %>
+          <img src="<%= user.Profile.avatarUrl %>" alt="Avatar" class="avatar" />
+        <% } else { %>
+          <div class="avatar placeholder"><%= user.username.charAt(0).toUpperCase() %></div>
+        <% } %>
+        <div>
+          <h1><%= user.Profile ? user.Profile.displayName : user.username %></h1>
+          <p class="muted">@<%= user.username %> · <%= user.role %></p>
+          <p><%= user.Profile && user.Profile.bio ? user.Profile.bio : 'Belum ada bio.' %></p>
+          <% if (userId === user.id) { %><a class="button secondary" href="/profile/edit">Edit Profile</a><% } %>
+        </div>
+      </section>
+
+      <div class="section-heading"><h2>Projects</h2><span><%= user.Posts.length %> post</span></div>
+      <% if (!user.Posts.length) { %><div class="empty-state">Belum ada post.</div><% } %>
+      <section class="post-grid">
+        <% user.Posts.forEach((post) => { %>
+          <article class="post-card">
+            <% if (post.imageUrl) { %><img src="<%= post.imageUrl %>" alt="<%= post.title %>" class="post-image" /><% } %>
+            <div class="post-body">
+              <span class="muted"><%= formatDate(post.createdAt) %></span>
+              <h3><a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+              <div class="tags"><% post.Tags.forEach((tag) => { %><span>#<%= tag.name %></span><% }) %></div>
+            </div>
+          </article>
+        <% }) %>
+      </section>
+    </main>
+  </body>
+</html>

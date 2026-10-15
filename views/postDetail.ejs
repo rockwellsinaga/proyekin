@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= post.title %> | PROYEKIN</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <main class="container narrow">
+      <% if (message) { %><div class="alert success"><%= message %></div><% } %>
+      <% if (error) { %><div class="alert error"><%= error %></div><% } %>
+      <article class="detail-card">
+        <% if (post.imageUrl) { %><img src="<%= post.imageUrl %>" alt="<%= post.title %>" class="detail-image" /><% } %>
+        <div class="post-meta">
+          <a href="/users/<%= post.User.id %>"><%= post.User.Profile ? post.User.Profile.displayName : post.User.username %></a>
+          <span><%= formatDate(post.createdAt) %></span>
+        </div>
+        <h1><%= post.title %></h1>
+        <% if (post.location) { %><p class="location">📍 <%= post.location %></p><% } %>
+        <p class="detail-content"><%= post.content %></p>
+        <div class="tags"><% post.Tags.forEach((tag) => { %><span>#<%= tag.name %></span><% }) %></div>
+
+        <% if (userId === post.UserId) { %>
+          <div class="actions">
+            <a class="button secondary" href="/posts/<%= post.id %>/edit">Edit</a>
+            <form action="/posts/<%= post.id %>/delete" method="POST" class="inline-form">
+              <button type="submit" class="button danger">Delete</button>
+            </form>
+          </div>
+        <% } %>
+      </article>
+
+      <section class="comments">
+        <h2>Comments (<%= post.Comments.length %>)</h2>
+        <% if (userId) { %>
+          <form action="/posts/<%= post.id %>/comments/add" method="POST" class="stack-form">
+            <textarea name="content" rows="3" placeholder="Tulis komentar..."></textarea>
+            <button type="submit">Add Comment</button>
+          </form>
+        <% } else { %>
+          <p><a href="/login">Login</a> untuk menambahkan komentar.</p>
+        <% } %>
+
+        <% if (!post.Comments.length) { %><p class="muted">Belum ada komentar.</p><% } %>
+        <% post.Comments.forEach((comment) => { %>
+          <div class="comment-item">
+            <strong><%= comment.User.Profile ? comment.User.Profile.displayName : comment.User.username %></strong>
+            <span><%= formatDate(comment.createdAt) %></span>
+            <p><%= comment.content %></p>
+          </div>
+        <% }) %>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Post | PROYEKIN</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <main class="container form-page">
+      <h1>Edit Post</h1>
+      <%- include("partials/errors", { errors }) %>
+      <form action="/posts/<%= post.id %>/edit" method="POST" enctype="multipart/form-data" class="stack-form card-form">
+        <label>Title<input type="text" name="title" value="<%= post.title %>" /></label>
+        <label>Content<textarea name="content" rows="7"><%= post.content %></textarea></label>
+        <label>Location<input type="text" name="location" value="<%= post.location || '' %>" /></label>
+        <% if (post.imageUrl) { %><img src="<%= post.imageUrl %>" alt="Current image" class="form-preview" /><% } %>
+        <label>Replace Image<input type="file" name="image" accept="image/jpeg,image/png,image/webp" /></label>
+        <fieldset>
+          <legend>Tags</legend>
+          <div class="checkbox-group">
+            <% tags.forEach((tag) => { %>
+              <label><input type="checkbox" name="TagIds" value="<%= tag.id %>" <%= selectedTagIds.includes(String(tag.id)) ? 'checked' : '' %> /> <%= tag.name %></label>
+            <% }) %>
+          </div>
+        </fieldset>
+        <button type="submit">Save Changes</button>
+      </form>
+    </main>
+  </body>
+</html>

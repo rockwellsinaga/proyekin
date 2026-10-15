@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Post | PROYEKIN</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <main class="container form-page">
+      <h1>Create New Post</h1>
+      <%- include("partials/errors", { errors }) %>
+      <form action="/posts/add" method="POST" enctype="multipart/form-data" class="stack-form card-form">
+        <label>Title<input type="text" name="title" value="<%= input.title || '' %>" /></label>
+        <label>Content<textarea name="content" rows="7"><%= input.content || '' %></textarea></label>
+        <label>Location<input type="text" name="location" value="<%= input.location || '' %>" /></label>
+        <label>Project Image<input type="file" name="image" accept="image/jpeg,image/png,image/webp" /></label>
+        <fieldset>
+          <legend>Tags</legend>
+          <div class="checkbox-group">
+            <% tags.forEach((tag) => { %>
+              <label><input type="checkbox" name="TagIds" value="<%= tag.id %>" <%= (input.TagIds || []).includes(String(tag.id)) ? 'checked' : '' %> /> <%= tag.name %></label>
+            <% }) %>
+          </div>
+        </fieldset>
+        <button type="submit">Create Post</button>
+      </form>
+    </main>
+  </body>
+</html>

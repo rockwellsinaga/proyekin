@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | PROYEKIN</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <main class="container auth-page">
+      <h1>Create Account</h1>
+      <p>Gabung dan bagikan proyek konstruksi Anda.</p>
+      <%- include("partials/errors", { errors }) %>
+      <form action="/register" method="POST" class="stack-form card-form">
+        <label>Username<input type="text" name="username" value="<%= input.username || '' %>" /></label>
+        <label>Display Name<input type="text" name="displayName" value="<%= input.displayName || '' %>" /></label>
+        <label>Email<input type="email" name="email" value="<%= input.email || '' %>" /></label>
+        <label>Password<input type="password" name="password" /></label>
+        <label>Role
+          <select name="role">
+            <option value="">Choose role</option>
+            <option value="buyer" <%= input.role === 'buyer' ? 'selected' : '' %>>Buyer</option>
+            <option value="seller" <%= input.role === 'seller' ? 'selected' : '' %>>Seller</option>
+          </select>
+        </label>
+        <button type="submit">Register</button>
+      </form>
+    </main>
+  </body>
+</html>

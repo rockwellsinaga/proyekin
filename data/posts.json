@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "UserId": 1,
+    "title": "Renovasi Rumah Minimalis di Semarang",
+    "content": "Proyek renovasi rumah minimalis dua lantai dengan konsep modern dan penggunaan material ramah lingkungan.",
+    "imageUrl": null,
+    "location": "Semarang"
+  },
+  {
+    "id": 2,
+    "UserId": 3,
+    "title": "Desain Rumah Modern Tropis",
+    "content": "Inspirasi desain rumah modern tropis yang mengutamakan pencahayaan alami dan sirkulasi udara.",
+    "imageUrl": null,
+    "location": "Bandung"
+  },
+  {
+    "id": 3,
+    "UserId": 1,
+    "title": "Progres Pembangunan Rumah Dua Lantai",
+    "content": "Dokumentasi progres pembangunan rumah mulai dari pemasangan pondasi hingga pengerjaan struktur lantai dua.",
+    "imageUrl": null,
+    "location": "Yogyakarta"
+  },
+  {
+    "id": 4,
+    "UserId": 2,
+    "title": "Inspirasi Renovasi Dapur Minimalis",
+    "content": "Berbagi inspirasi renovasi dapur dengan desain sederhana, kabinet kayu, dan pencahayaan yang nyaman.",
+    "imageUrl": null,
+    "location": "Jakarta"
+  },
+  {
+    "id": 5,
+    "UserId": 3,
+    "title": "Desain Interior Ruang Tamu Modern",
+    "content": "Konsep ruang tamu modern dengan pemilihan warna netral, furnitur minimalis, dan tata ruang terbuka.",
+    "imageUrl": null,
+    "location": "Surabaya"
+  },
+  {
+    "id": 6,
+    "UserId": 4,
+    "title": "Perbaikan Jalan Lingkungan Perumahan",
+    "content": "Dokumentasi proses perbaikan jalan lingkungan untuk meningkatkan kenyamanan dan akses kendaraan warga.",
+    "imageUrl": null,
+    "location": "Depok"
+  }
+]

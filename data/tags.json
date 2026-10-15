@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Renovasi"
+  },
+  {
+    "id": 2,
+    "name": "Arsitektur"
+  },
+  {
+    "id": 3,
+    "name": "Konstruksi"
+  },
+  {
+    "id": 4,
+    "name": "Interior"
+  },
+  {
+    "id": 5,
+    "name": "Infrastruktur"
+  }
+]

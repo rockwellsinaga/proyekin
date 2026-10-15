@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "PostId": 1,
+    "TagId": 1
+  },
+  {
+    "id": 2,
+    "PostId": 1,
+    "TagId": 3
+  },
+  {
+    "id": 3,
+    "PostId": 2,
+    "TagId": 2
+  },
+  {
+    "id": 4,
+    "PostId": 2,
+    "TagId": 3
+  },
+  {
+    "id": 5,
+    "PostId": 3,
+    "TagId": 3
+  },
+  {
+    "id": 6,
+    "PostId": 4,
+    "TagId": 1
+  },
+  {
+    "id": 7,
+    "PostId": 4,
+    "TagId": 4
+  },
+  {
+    "id": 8,
+    "PostId": 5,
+    "TagId": 2
+  },
+  {
+    "id": 9,
+    "PostId": 5,
+    "TagId": 4
+  },
+  {
+    "id": 10,
+    "PostId": 6,
+    "TagId": 3
+  },
+  {
+    "id": 11,
+    "PostId": 6,
+    "TagId": 5
+  }
+]

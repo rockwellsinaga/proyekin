@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile | PROYEKIN</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <main class="container form-page">
+      <h1>Edit Profile</h1>
+      <%- include("partials/errors", { errors }) %>
+      <form action="/profile/edit" method="POST" enctype="multipart/form-data" class="stack-form card-form">
+        <label>Display Name<input type="text" name="displayName" value="<%= profile.displayName || '' %>" /></label>
+        <label>Bio<textarea name="bio" rows="5"><%= profile.bio || '' %></textarea></label>
+        <% if (profile.avatarUrl) { %><img src="<%= profile.avatarUrl %>" alt="Avatar" class="form-preview avatar" /><% } %>
+        <label>Avatar<input type="file" name="image" accept="image/jpeg,image/png,image/webp" /></label>
+        <button type="submit">Save Profile</button>
+      </form>
+    </main>
+  </body>
+</html>

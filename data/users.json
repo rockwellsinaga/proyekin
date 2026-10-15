@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "username": "andipratama",
+    "email": "andi@example.com",
+    "password": "$2b$10$xcw1pSv/M.VwnP3H40zz8eEU6ckNIA8SIee2nn/gU2tBXCHxrNC8S",
+    "role": "seller"
+  },
+  {
+    "id": 2,
+    "username": "budiwijaya",
+    "email": "budi@example.com",
+    "password": "$2b$10$Bo5hq00hmWHJsyxNJ.61QOA4xdT8PhaqshhmuHxBfUMzica5dxgBa",
+    "role": "buyer"
+  },
+  {
+    "id": 3,
+    "username": "citradewi",
+    "email": "citra@example.com",
+    "password": "$2b$10$xbzbulOmm/G4kw9Fi/YLMu086wYTBv16TobBeO3MCdz/H9wA3TvtG",
+    "role": "seller"
+  },
+  {
+    "id": 4,
+    "username": "dimasaputra",
+    "email": "dimas@example.com",
+    "password": "$2b$10$q../xeHagHYvPx6iSWt48.xH35Uz5pWBwnB.youdAgJUXThGCDnUW",
+    "role": "buyer"
+  }
+]
