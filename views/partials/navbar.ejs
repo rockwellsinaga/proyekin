@@ -3,7 +3,9 @@
   <div class="nav-links">
     <a href="/">Home</a>
     <% if (userId) { %>
-      <a href="/posts/add">Create Post</a>
+      <% if (role === "seller") { %>
+        <a href="/posts/add">Create Post</a>
+      <% } %>
       <a href="/users/<%= userId %>">Profile</a>
       <form action="/logout" method="POST" class="inline-form">
         <button type="submit" class="link-button">Logout</button>

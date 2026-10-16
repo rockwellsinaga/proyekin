@@ -22,7 +22,7 @@
         <p class="detail-content"><%= post.content %></p>
         <div class="tags"><% post.Tags.forEach((tag) => { %><span>#<%= tag.name %></span><% }) %></div>
 
-        <% if (userId === post.UserId) { %>
+        <% if (role === "seller" && userId === post.UserId) { %>
           <div class="actions">
             <a class="button secondary" href="/posts/<%= post.id %>/edit">Edit</a>
             <form action="/posts/<%= post.id %>/delete" method="POST" class="inline-form">

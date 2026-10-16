@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "UserId": 2,
+    "UserId": 1,
     "title": "Inspirasi Renovasi Dapur Minimalis",
     "content": "Berbagi inspirasi renovasi dapur dengan desain sederhana, kabinet kayu, dan pencahayaan yang nyaman.",
     "imageUrl": null,
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "UserId": 4,
+    "UserId": 3,
     "title": "Perbaikan Jalan Lingkungan Perumahan",
     "content": "Dokumentasi proses perbaikan jalan lingkungan untuk meningkatkan kenyamanan dan akses kendaraan warga.",
     "imageUrl": null,

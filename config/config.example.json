@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "YOUR_POSTGRES_USERNAME",
+    "password": "YOUR_POSTGRES_PASSWORD",
+    "database": "proyekin-db",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "YOUR_POSTGRES_USERNAME",
+    "password": "YOUR_POSTGRES_PASSWORD",
+    "database": "proyekin-test-db",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "YOUR_POSTGRES_USERNAME",
+    "password": "YOUR_POSTGRES_PASSWORD",
+    "database": "proyekin-production-db",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

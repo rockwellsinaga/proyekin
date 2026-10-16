@@ -2,16 +2,17 @@
 
 **PROYEKIN** adalah aplikasi media sosial bertema pembangunan yang menjadi tempat bagi komunitas untuk membagikan proyek, progres pekerjaan, serta inspirasi seputar konstruksi, renovasi, arsitektur, interior, dan infrastruktur.
 
-Pengguna dapat menjelajahi posting proyek, mencari proyek berdasarkan judul, melihat profil anggota komunitas, dan membaca komentar. Setelah masuk ke akun, pengguna juga dapat membuat posting, mengunggah gambar, memilih tag, memberikan komentar, mengelola posting miliknya sendiri, serta memperbarui profil.
+Pengguna dapat menjelajahi posting proyek, mencari proyek berdasarkan judul, melihat profil anggota komunitas, dan membaca komentar. Setelah masuk ke akun, buyer dapat berinteraksi melalui komentar, sedangkan seller dapat membagikan serta mengelola posting proyek miliknya. Buyer dan seller sama-sama dapat memperbarui profil.
 
 ## Fitur Utama
 
-- Registrasi akun dengan pilihan peran `buyer` atau `seller`.
+- Registrasi akun dengan pilihan peran `buyer` atau `seller` dan hak akses yang berbeda.
 - Login dan logout menggunakan session.
 - Password disimpan dalam bentuk hash menggunakan bcrypt.
 - Menampilkan posting terbaru pada halaman utama.
 - Pencarian posting berdasarkan judul proyek.
-- Membuat, melihat, mengubah, dan menghapus posting.
+- Seller dapat membuat, mengubah, dan menghapus posting miliknya sendiri.
+- Buyer dapat mencari proyek dan berinteraksi dengan seller melalui komentar.
 - Otorisasi agar posting hanya dapat diubah atau dihapus oleh pemiliknya.
 - Mengunggah gambar proyek berformat JPG, PNG, atau WEBP dengan ukuran maksimal 5 MB.
 - Menambahkan lokasi dan beberapa tag pada posting.
@@ -19,6 +20,19 @@ Pengguna dapat menjelajahi posting proyek, mencari proyek berdasarkan judul, mel
 - Melihat profil pengguna beserta seluruh posting miliknya.
 - Mengubah display name, bio, dan foto profil.
 - Validasi data pada akun, profil, posting, tag, dan komentar.
+
+## Hak Akses
+
+| Fitur                              | Guest | Buyer | Seller |
+| ---------------------------------- | :---: | :---: | :----: |
+| Melihat dan mencari posting        |   ✓   |   ✓   |   ✓    |
+| Melihat profil pengguna            |   ✓   |   ✓   |   ✓    |
+| Mengubah profil sendiri            |   -   |   ✓   |   ✓    |
+| Menambahkan komentar               |   -   |   ✓   |   ✓    |
+| Membuat posting proyek             |   -   |   -   |   ✓    |
+| Mengubah atau menghapus post sendiri |  -  |   -   |   ✓    |
+
+Tidak ada pengguna yang dapat mengubah atau menghapus posting milik pengguna lain.
 
 ## Teknologi
 
@@ -63,7 +77,11 @@ Pastikan perangkat sudah memiliki:
    npm install
    ```
 
-3. Sesuaikan koneksi PostgreSQL pada `config/config.json`, khususnya bagian `development`.
+3. Salin `config/config.example.json` menjadi `config/config.json`, lalu sesuaikan koneksi PostgreSQL, khususnya bagian `development`.
+
+   ```bash
+   cp config/config.example.json config/config.json
+   ```
 
    ```json
    {
@@ -106,11 +124,11 @@ Pastikan perangkat sudah memiliki:
 
 1. Buka halaman **Register** untuk membuat akun baru.
 2. Login menggunakan email dan password yang sudah didaftarkan.
-3. Pilih **Create Post** untuk membagikan proyek pembangunan.
-4. Isi judul, deskripsi, lokasi, tag, dan gambar proyek jika diperlukan.
-5. Buka detail posting untuk melihat informasi lengkap dan menambahkan komentar.
-6. Gunakan halaman **Profile** untuk melihat posting sendiri atau memperbarui profil.
-7. Pemilik posting dapat mengubah atau menghapus posting melalui halaman detail.
+3. Seller dapat memilih **Create Post** untuk membagikan proyek pembangunan.
+4. Seller mengisi judul, deskripsi, lokasi, tag, dan gambar proyek jika diperlukan.
+5. Buyer dan seller dapat membuka detail posting dan menambahkan komentar.
+6. Gunakan halaman **Profile** untuk melihat profil atau memperbarui profil sendiri.
+7. Seller dapat mengubah atau menghapus posting miliknya melalui halaman detail.
 
 ## Route Utama
 
@@ -125,13 +143,13 @@ Pastikan perangkat sudah memiliki:
 | `GET`  | `/users/:id`              | Menampilkan profil pengguna             |
 | `GET`  | `/profile/edit`           | Menampilkan formulir edit profil        |
 | `POST` | `/profile/edit`           | Memperbarui profil pengguna             |
-| `GET`  | `/posts/add`              | Menampilkan formulir posting baru       |
-| `POST` | `/posts/add`              | Membuat posting baru                    |
+| `GET`  | `/posts/add`              | Menampilkan formulir posting baru untuk seller |
+| `POST` | `/posts/add`              | Membuat posting baru sebagai seller     |
 | `GET`  | `/posts/:id`              | Menampilkan detail posting dan komentar |
-| `GET`  | `/posts/:id/edit`         | Menampilkan formulir edit posting       |
-| `POST` | `/posts/:id/edit`         | Memperbarui posting                     |
-| `POST` | `/posts/:id/delete`       | Menghapus posting                       |
-| `POST` | `/posts/:id/comments/add` | Menambahkan komentar                    |
+| `GET`  | `/posts/:id/edit`         | Menampilkan formulir edit untuk seller pemilik post |
+| `POST` | `/posts/:id/edit`         | Memperbarui post milik seller           |
+| `POST` | `/posts/:id/delete`       | Menghapus post milik seller             |
+| `POST` | `/posts/:id/comments/add` | Menambahkan komentar setelah login      |
 
 ## Pengembang
 
